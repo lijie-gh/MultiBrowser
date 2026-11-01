@@ -1,0 +1,8 @@
+node_modules/
+dist/
+_sfx/
+_test/
+*.log
+i18n-frag-*.json
+merge_i18n.py
+verify_i18n.py
