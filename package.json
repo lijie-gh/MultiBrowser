@@ -1,0 +1,62 @@
+{
+  "name": "multi-browser",
+  "version": "2.2.0",
+  "description": "多屏浏览器 · 同步操作 · 批量操作",
+  "main": "main.js",
+  "author": "MultiBrowser",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build:exe": "electron-builder --win portable",
+    "build:installer": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "43.3.0",
+    "electron-builder": "^26.18.0"
+  },
+  "build": {
+    "appId": "com.multibrowser.app",
+    "productName": "MultiBrowser",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "guest-preload.js",
+      "dialog.js",
+      "dialog.html",
+      "dialog-preload.js",
+      "newtab.html",
+      "i18n.js",
+      "app.ico",
+      "renderer/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "app.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "artifactName": "MultiBrowser-Setup-${version}.exe"
+    },
+    "electronDownload": {
+      "mirror": "https://npmmirror.com/mirrors/electron/"
+    }
+  },
+  "dependencies": {
+    "7zip-bin": "^5.2.0"
+  }
+}
