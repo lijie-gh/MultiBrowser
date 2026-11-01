@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="app.name">多屏浏览器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.07 0l2-2a5 5 0 0 0-7.07-7.07l-1.2 1.2"/><path d="M14 11a5 5 0 0 0-7.07 0l-2 2a5 5 0 0 0 7.07 7.07l1.2-1.2"/></symbol>
+    <symbol id="i-reload" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></symbol>
+    <symbol id="i-vol" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m16 9 5 5m0-5-5 5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></symbol>
+    <symbol id="i-sync" viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.9-3M4 5v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3M20 19v-4h-4"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+    <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-fwd" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 3h7v7M21 3l-9 9"/><path d="M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m7 4 13 8-13 8z"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+  </svg>
+
+  <div class="app" id="app">
+    <header class="toolbar">
+      <div class="brand">
+        <div class="logo"><span></span><span></span><span></span><span></span></div>
+        <div class="brand-text">
+          <b data-i18n="app.name">多屏浏览器</b>
+          <small>MULTI&nbsp;SCREEN</small>
+        </div>
+      </div>
+
+      <div class="tool-group">
+        <button class="btn" id="btn-add" title="新建窗口（Ctrl+T）" data-i18n-title="tb.newTip">
+          <svg class="ic"><use href="#i-plus"/></svg><span data-i18n="tb.new">新窗口</span>
+        </button>
+        <button class="btn" id="btn-remove" title="关闭当前窗口（减一屏）" data-i18n-title="tb.removeTip">
+          <svg class="ic"><use href="#i-minus"/></svg><span data-i18n="tb.remove">减窗口</span>
+        </button>
+        <button class="btn" id="btn-layout" title="自定义行、列和比例（可自动排版）" data-i18n-title="tb.layoutTip">
+          <svg class="ic"><use href="#i-grid"/></svg><span id="layout-label">2×2</span>
+        </button>
+        <button class="btn" id="btn-batch" title="批量打开网址（Ctrl+Shift+O）" data-i18n-title="tb.batchOpenTip">
+          <svg class="ic"><use href="#i-link"/></svg><span data-i18n="tb.batchOpen">批量打开</span>
+        </button>
+        <button class="btn" id="btn-batch-close" title="批量关闭窗口" data-i18n-title="close.title">
+          <svg class="ic"><use href="#i-trash"/></svg><span data-i18n="tb.batchClose">批量关闭</span>
+        </button>
+        <button class="btn" id="btn-reload" title="全部刷新（Ctrl+Shift+R）" data-i18n-title="tb.refreshAllTip">
+          <svg class="ic"><use href="#i-reload"/></svg><span data-i18n="tb.refreshAll">全部刷新</span>
+        </button>
+        <button class="btn" id="btn-mute" title="全部静音" data-i18n-title="tb.muteAllTip">
+          <svg class="ic"><use href="#i-vol"/></svg><span data-i18n="tb.muteAll">静音</span>
+        </button>
+        <div class="zoom" title="所有窗口统一缩放" data-i18n-title="tb.zoomTip">
+          <button id="zoom-out" class="mini">−</button>
+          <span id="zoom-label">100%</span>
+          <button id="zoom-in" class="mini">+</button>
+        </div>
+        <button class="btn" id="btn-js" title="批量执行脚本（Ctrl+Shift+J）" data-i18n-title="tb.scriptsTip">
+          <svg class="ic"><use href="#i-code"/></svg><span data-i18n="tb.scripts">脚本</span>
+        </button>
+        <button class="btn" id="btn-ws" title="保存 / 恢复整套窗口和布局" data-i18n-title="tb.workspaceTitle">
+          <svg class="ic"><use href="#i-folder"/></svg><span data-i18n="tb.workspace">工作区</span>
+        </button>
+      </div>
+
+      <div class="spacer"></div>
+
+      <button class="sync-btn" id="btn-sync" title="同步操作开关（Ctrl+Shift+S）" data-i18n-title="tb.syncTip">
+        <span class="dot"></span>
+        <svg class="ic"><use href="#i-sync"/></svg>
+        <span class="sync-text" data-i18n="tb.sync">同步操作</span>
+      </button>
+      <button class="icon-btn" id="btn-sync-set" title="同步设置" data-i18n-title="tb.syncSet"><svg class="ic"><use href="#i-gear"/></svg></button>
+      <button class="icon-btn" id="btn-help" title="使用说明" data-i18n-title="tb.helpTip"><svg class="ic"><use href="#i-help"/></svg></button>
+      <button class="icon-btn" id="btn-theme" title="切换深色 / 浅色主题" data-i18n-title="tb.themeTitle"><svg class="ic"><use href="#i-moon"/></svg></button>
+      <button class="icon-btn" id="btn-lang" title="切换语言 / Switch language" data-i18n-title="tb.langTitle"><svg class="ic"><use href="#i-globe"/></svg></button>
+      <button class="icon-btn" id="btn-full" title="全屏" data-i18n-title="tb.fullscreen"><svg class="ic"><use href="#i-expand"/></svg></button>
+    </header>
+
+    <main class="grid" id="grid"></main>
+
+    <footer class="statusbar">
+      <span id="stat-panes" data-i18n="stat.windows" data-i18n-args="0">0 个窗口</span>
+      <span class="sep">·</span>
+      <span id="stat-cols"></span>
+      <span class="hint" data-i18n="stat.hint">点击窗口左上角小圆点，决定它是否参与同步</span>
+      <span id="stat-msg" class="stat-msg"></span>
+      <span class="spacer"></span>
+      <span id="stat-sync" class="muted" data-i18n="stat.syncOff">同步已关闭</span>
+      <span class="sep">·</span>
+      <span id="stat-events" class="muted">0</span>
+    </footer>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+  <script src="../i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
