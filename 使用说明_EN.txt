@@ -1,0 +1,96 @@
+本文件是英文版 | This is the English version. 中文版见 使用说明.txt
+
+MultiBrowser · User Manual
+========================
+
+Note: the program interface itself can switch between Chinese and English — click the globe icon in the toolbar.
+
+【How to Open】
+Double-click the "多屏浏览器" (MultiBrowser) icon on your desktop.
+If there is no desktop icon, double-click `1_启动多屏浏览器.bat` (the launcher; "启动多屏浏览器" = Start MultiBrowser) in the program folder instead.
+
+【Basic Interface】
+· "＋ New Window" at the top: adds a browser window (up to 16).
+· "− Remove Window" at the top: closes the currently selected window (at least one is kept); you can also click the "×" at the top-right corner of each window.
+· The "2×2" button at the top: customize the number of rows and columns, plus the height ratio of each row and the width ratio of each column.
+· Every window can enter its own URL, and has back, forward, reload, mute, and close controls.
+· "⋯" at the top-right corner of a window: copy the URL, open in the system browser, developer tools, reset this window's login data, close other windows.
+
+【Custom Layout】
+1. Click the "2×2" button at the top to open "Custom Layout".
+2. "Auto layout" is checked by default: the program decides the rows and columns automatically based on the number of windows, splits the space evenly, and rearranges automatically after windows are added or removed.
+3. To set it yourself: uncheck the box, then fill in the number of rows and columns (1–8); rows × columns must be enough to hold all current windows.
+   Don't want to type numbers? Click the "Quick Layout" button in the dialog (1×1, 2×2, 3×3, 4×4, 1×2, 2×1); one click fills in the rows and columns for you, then just fine-tune the ratios.
+4. "Row height ratio" and "Column width ratio" are separated by colons. For example, for 3 columns enter 2:1:1, meaning the first column takes half the width and the other two take a quarter each.
+   When you change the number of rows or columns, the ratio list is automatically padded or truncated — no need to count the entries yourself.
+5. Leave blank for equal sizing; click "Reset to equal" to restore it in one click.
+6. If there are not enough cells after adding or removing windows, the program automatically adds a row at the bottom; to go back to the previous row count, just open the layout dialog and change it.
+
+【Independent Accounts (each window its own login)】
+Each window has its own cookies.
+For example: log into account A in window 1 and account B in window 2 — the two do not affect each other.
+To log out of an account in a given window: click "⋯" on that window → "Reset this window's login data".
+
+【Synchronized Actions (act in one window, the others follow)】
+1. Click the "Synchronized Actions" button at the top right; the button turns green when it is on.
+2. Each window has a small dot in its top-left corner:
+   · Green = participating in sync
+   · Gray = not participating in sync (click the dot to toggle)
+3. When it is on, clicking, typing, and scrolling in any green window makes the other green windows do the same.
+4. Click the small gear next to "Synchronized Actions" to sync only certain kinds of actions.
+5. Sync works best with "multiple accounts on the same site": for example, open 4 windows of Bilibili (B 站), click a video in one window and the others open it together.
+   Different websites are structured differently, so a click may land on a different element — do not sync clicks across different websites.
+
+【Batch Operations】
+· Batch open: paste in several URLs at once (one per line); they are assigned to the windows in order, and new windows are created automatically if there are not enough.
+  You can also enter just one URL and click "Open in all" to have every window open it.
+· Batch close: check the windows you want to close and close them in one go. Login data is kept.
+· Reload all: refreshes all windows together.
+· Mute: mutes / restores sound for all windows together.
+· Script: run the same JavaScript in all checked windows. Good for batch check-ins, dismissing pop-ups, and filling forms.
+  Example: click every close button on the page
+  document.querySelectorAll('.close,.modal-close').forEach(el => el.click());
+  The script's return value is shown in "Execution result".
+
+【Workspaces (save and restore the whole scene)】
+1. Click the "Workspaces" button at the top (folder icon) to save the URLs + layout of all current windows as a workspace.
+2. How to save: arrange the windows and open the URLs first, then click "Workspaces" → "Save current workspace", give it a name (e.g. "Study materials"), and confirm.
+3. How to restore: click "Workspaces" and click a workspace name in the list; all windows automatically return to the saved URLs and layout — one click does it all.
+4. How to delete: click "Delete" next to a workspace in the list; it is gone, and the other workspaces are unaffected.
+5. Workspace data is stored at: %APPDATA%\MultiBrowser\workspaces.json
+   (that is, AppData\Roaming\MultiBrowser\workspaces.json under your user profile)
+   Example: while doing homework you open 3 windows for research and save them as "Homework"; next time, click "Homework" and all 3 windows come back exactly as they were.
+
+【Dark / Light Themes】
+· Click the "Theme" button at the top (moon / sun icon) to switch between dark and light themes.
+· Dark themes are easy on the eyes at night; light themes are clearer during the day.
+· Your choice is remembered automatically — the program opens the way you like it next time, no need to set it again.
+
+【Chinese / English Interface】
+· Click the "Language" button at the top (globe icon) to switch the interface between 中文 and English.
+· One click turns the whole interface into English; click again to switch back to Chinese. All text changes immediately — no need to restart the program.
+
+【Keyboard Shortcuts】
+Ctrl+T            New window
+Ctrl+Shift+O      Batch open
+Ctrl+Shift+R      Reload all
+Ctrl+Shift+S      Toggle sync on / off
+Ctrl+Shift+J      Run batch script
+
+【Auto Save】
+The number of windows, their arrangement, and their URLs are saved automatically.
+Next time you open the program, the previous windows and pages are restored automatically.
+Saved at: AppData\Roaming\MultiBrowser\session.json under your user profile
+
+【FAQ】
+1. A website opens blank?
+   Try clicking that window's reload first. Some sites (e.g. GitHub) may load slowly or fail to open on some networks in mainland China — try again on a different network.
+2. Sync is on but nothing happens?
+   Check three things: whether the "Synchronized Actions" button at the top is green; whether the dot in the window's top-left corner is green; and whether you are operating in a blank new window.
+3. Login state messed up?
+   Click "⋯" on that window → "Reset this window's login data". That window will be logged out; the other windows are unaffected.
+4. Why is a pop-up a separate little window?
+   Because the web pages in this multi-window browser are rendered independently, ordinary in-page pop-up layers would be covered by the page itself. So dialogs such as Settings and Batch Operations open in their own separate windows — this way they are always visible and can always be operated.
+
+【Notes】
+This program is stored only on this computer and needs no online installation. Deleting the program folder uninstalls it (login data lives in AppData\Roaming\MultiBrowser and can be deleted as well).
